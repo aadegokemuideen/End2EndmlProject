@@ -38,5 +38,5 @@ setup(
     author="Adegoke Muideen",
     author_email="aadegokemuideen@yahoo.com",
     packages=find_packages(),
-    install_requires = get_requirements("requirements.txt")
+    install_requires = get_requirements("requirements.txt") ##  return list of requirements
 )
