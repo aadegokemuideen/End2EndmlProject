@@ -19,9 +19,9 @@ from src.components.data_transformations import DataTransformation
 
 @dataclass # read more on it
 class DataIngestionConfig:
-    train_data_path: str=os.path.join('artifacts',"train.csv")
-    test_data_path: str=os.path.join('artifacts',"test.csv")
-    raw_data_path: str=os.path.join('artifacts',"train.csv")
+    train_data_path: str=os.path.join('..//..//artifacts',"train.csv")
+    test_data_path: str=os.path.join('..//..//artifacts',"test.csv")
+    raw_data_path: str=os.path.join('..//..//artifacts',"train.csv")
 
 class DataIngestion:
     def __init__(self):
@@ -30,7 +30,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method or component")
         try:
-            df=pd.read_csv('notebook\data\stud.csv') # can as well read from mongodb or sql or awl
+            df=pd.read_csv('..\\..\\notebook\data\stud.csv') # can as well read from mongodb or sql or awl
             logging.info("Read the data set as dataframe")
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True)
@@ -57,8 +57,10 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    #obj.initiate_data_ingestion()
     train_data,test_data = obj.initiate_data_ingestion()
+
+    
 
     data_transformation = DataTransformation()
     data_transformation.initiate_data_transformation(train_data,test_data)
